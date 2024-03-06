@@ -1,0 +1,47 @@
+{
+  "name": "iobroker.syncthingmonitor",
+  "version": "0.0.0",
+  "description": "SyncthingMonitor at ioBroker",
+  "author": {
+    "name": "Markus Hottenrott",
+    "email": "iobroker@uniforx.com"
+  },
+  "contributors": [
+    {
+      "name": "Markus Hottenrott",
+      "email": "iobroker@uniforx.com"
+    }
+  ],
+  "homepage": "https://github.com/uniforx/ioBroker.syncthingmonitor",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "syncthing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uniforx/ioBroker.syncthingmonitor"
+  },
+  "dependencies": {
+    "request-promise": "^4.2.0",
+    "@iobroker/adapter-core": "^1.0.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^4.1.0",
+    "chai": "^4.1.2",
+    "request-promise": "^4.2.0",
+    "@iobroker/testing": "^1.1.10"
+  },
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run test:package && npm run test:unit",
+    "test:package": "mocha test/package --exit",
+    "test:unit": "mocha test/unit --exit",
+    "test:integration": "mocha test/integration --exit"
+  },
+  "bugs": {
+    "url": "https://github.com/uniforx/ioBroker.syncthingmonitor/issues"
+  },
+  "readmeFilename": "README.md"
+}

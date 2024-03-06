@@ -1,0 +1,30 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "syncthingIp": {
+      "type": "text",
+      "label": "IP of syncthing",
+      "newLine": true
+    },
+    "syncthingPort": {
+      "type": "text",
+      "label": "Port of syncthing",
+      "newLine": true
+    },
+    "syncthingApiKey": {
+      "type": "password",
+      "label": "API Key",
+      "newLine": true,
+      "sm": 3
+    },
+    "syncthingCheckInterval": {
+      "type": "number",
+      "label": "Minutes between check",
+      "sm": 1,
+      "default": 5,
+      "min" : 1,
+      "max": 60
+    }
+  }
+}

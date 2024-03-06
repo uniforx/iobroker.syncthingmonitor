@@ -1,0 +1,96 @@
+{
+  "common": {
+    "name": "syncthingmonitor",
+    "version": "0.0.0",
+    "materialize":  true,
+    "news": {
+      "0.0.0": {
+        "en": "under construction",
+        "de": "under construction"
+      }
+    },
+    "title": "SyncthingMonitor",
+    "titleLang": {
+      "en": "SyncthingMonitor",
+      "de": "SyncthingMonitor"
+    },
+    "desc": {
+      "en": "Syncthing Adapter to monitor folder and device state",
+      "de": "Syncthing Adapter um den Status von Ordnern und Geräten zu überwachen"
+	},
+    "platform": "Javascript/Node.js",
+	"loglevel": "info",
+    "mode": "schedule",
+	"schedule": "*/5 * * * *",
+	"main": "main.js",
+    "authors": ["Markus Hottenrott <iobroker@uniforx.com>"],
+	"license": "MIT",
+    "icon":	"syncthing.png",
+    "enabled": true,
+	"extIcon": "https://raw.githubusercontent.com/uniforx/ioBroker.syncthingmonitor/admin/syncthing.png",
+	"keywords": ["syncthing"],
+    "readme": "https://github.com/uniforx/ioBroker.syncthingmonitor/README.md",
+	"connectionType": "local",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+	"localLink": "https://syncthing.net/",
+	"allowInit": false,
+      "type": "utility"
+    },
+    "encryptedNative": [
+      "syncthingApiKey"
+    ],
+    "protectedNative": [
+      "syncthingApiKey"
+    ],
+    "native": {
+      "syncthingIp": "127.0.0.1",
+      "syncthingPort": 8384,
+      "syncthingSsl": false,
+      "syncthingApiKey": "",
+      "syncthingCheckInterval": 5
+    },
+    "objects": [],
+    "instanceObjects": [
+      {
+        "_id": "info",
+        "type": "channel",
+        "common": {
+          "role": "folder",
+          "name": "Folder"
+        },
+        "native": {}
+      },
+      {
+        "_id": "info.connection",
+        "type": "state",
+        "common": {
+          "name": "Syncthing connected",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "native": {}
+      },
+      {
+        "_id": "folder",
+        "type": "folder",
+        "common": {
+          "role": "folder",
+          "name": "Folder"
+        },
+        "native": {}
+      },
+      {
+        "_id": "device",
+        "type": "folder",
+        "common": {
+          "role": "folder",
+          "name": ""
+        },
+        "native": {}
+      }
+    ]
+}
