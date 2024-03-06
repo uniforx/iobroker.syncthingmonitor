@@ -1,0 +1,279 @@
+{
+    "common": {
+      "name": "syncthing",
+      "version": "0.1.3",
+      "materialize":  true,
+      "news": {
+        "0.1.3": {
+          "en": "updated version with new stopAdapter function and merge with Apollon77 updates.",
+          "de": "Aktualisierte Version mit neuer stopAdapter Funktion und Merge mit Apollon77 Updates."
+        },
+        "0.1.2": {
+          "en": "updated version with full folder information provided by the Syncthing folder endpoint.",
+          "de": "Aktualisierte Version mit allen Informationen des Syncthing Folder Endpunktes."
+        },
+        "0.1.1": {
+          "en": "fixed version with scheduler mode and correct adapter.stop handling (after the request).",
+          "de": "Fix Version mit scheduler mode und korrektem adapter.stop Handling (nach Verarbeitung des HTTP Request)."
+        },
+        "0.1.0": {
+          "en": "initial adapter",
+          "de": "Initiale Version"
+        }
+      },
+        "title": "Syncthing",
+	"titleLang": {
+      		"en": "Syncthing",
+      		"de": "Syncthing"
+	},
+        "desc":                     {
+		"en": "Syncthing Adapter to request a Syncthing folder status",
+		"de": "Syncthing Adapter um einen Syncthing Folder Status abzufragen"
+	},
+        "platform": "Javascript/Node.js",
+	"loglevel": "info",
+        "mode":     "schedule",
+	"schedule":  "*/5 * * * *",
+	"main":      "main.js",
+        "authors": 	["Joerg Zdarsky <joerg.zdarsky@gmx.de>"],
+	"license": 	"MIT",
+        "icon":		"syncthing.png",
+        "enabled":      true,
+	"extIcon":      "https://raw.githubusercontent.com/joergzdarsky/ioBroker.syncthing/master/admin/syncthing.png",
+	"keywords":     ["syncthing", "cloud", "folder", "share"],	
+        "readme":       "https://github.com/joergzdarsky/ioBroker.syncthing/blob/master/README.md",
+	"connectionType": "local",
+    	"dataSource": 	"poll",
+	"localLink":    "https://syncthing.net/",
+	"allowInit": 	false,
+        "type":         "utility"
+    },
+    "native": {
+		"syncthingurl": "http://127.0.0.1:8080",
+		"syncthingapikey": "YourApiKey",
+		"syncthingfolderid": "YourFolderID"
+    },
+    "objects": [
+
+    ],
+  "instanceObjects": [
+    {
+      "_id": "folder",
+      "type": "channel",
+      "common": {
+        "role": "folder",
+        "name": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.globalBytes",
+      "type": "state",
+      "common": {
+        "name": "globalBytes",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.globalBytesFormated",
+      "type": "state",
+      "common": {
+        "name": "globalBytesFormated",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.globalDeleted",
+      "type": "state",
+      "common": {
+        "name": "globalDeleted",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.globalFiles",
+      "type": "state",
+      "common": {
+        "name": "globalFiles",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.localBytes",
+      "type": "state",
+      "common": {
+        "name": "localBytes",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.localBytesFormated",
+      "type": "state",
+      "common": {
+        "name": "localBytesFormated",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.localDeleted",
+      "type": "state",
+      "common": {
+        "name": "localDeleted",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.localFiles",
+      "type": "state",
+      "common": {
+        "name": "localFiles",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.inSyncBytes",
+      "type": "state",
+      "common": {
+        "name": "inSyncBytes",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.inSyncBytesFormated",
+      "type": "state",
+      "common": {
+        "name": "inSyncBytesFormated",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.inSyncFiles",
+      "type": "state",
+      "common": {
+        "name": "inSyncFiles",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.needBytes",
+      "type": "state",
+      "common": {
+        "name": "needBytes",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.needBytesFormated",
+      "type": "state",
+      "common": {
+        "name": "needBytesFormated",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.needFiles",
+      "type": "state",
+      "common": {
+        "name": "needFiles",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.ignorePatterns",
+      "type": "state",
+      "common": {
+        "name": "ignorePatterns",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.invalid",
+      "type": "state",
+      "common": {
+        "name": "invalid",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.state",
+      "type": "state",
+      "common": {
+        "name": "state",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.stateChange",
+      "type": "state",
+      "common": {
+        "name": "stateChange",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "folder.version",
+      "type": "state",
+      "common": {
+        "name": "version",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
+}
